@@ -8,6 +8,7 @@ def get_url (url: str, spotify: spotifyapi.Session, tidal: tidalapi.Session) -> 
     ts = t + "s"
     track = spotify.query("/{}/{}".format(ts, spotify_track_id))
     search = "{} {}".format(track["name"], track["artists"][0]["name"])
-    result = tidal.search(search, models= [tidalapi.Track, tidalapi.Album, tidalapi.Artist], limit= 1)[ts][0]
+    model_dict = { "track": tidalapi.Track, "album": tidalapi.Album, "artist": tidalapi.Artist }
+    result = tidal.search(search, models= [ model_dict[t] ], limit= 1)[ts][0]
 
     return "https://listen.tidal.com/{}/{}".format(t, str(result.id))
