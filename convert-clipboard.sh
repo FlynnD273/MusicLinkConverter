@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python convert.py `xclip -o -selection clipboard` | xclip -i -selection clipboard
+echo -n `python ~/Documents/MusicLinkConverter/convert.py `xclip -o -selection clipboard`` | xclip -i -selection clipboard

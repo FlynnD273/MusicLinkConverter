@@ -16,8 +16,9 @@ def login (session: tidalapi.Session) -> None:
     future.result()
 
 tidal_session = tidalapi.Session()
-if os.path.exists("tidalsession.pickle"):
-    with open("tidalsession.pickle", "rb") as f:
+picklepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tidalsession.pickle")
+if os.path.exists(picklepath):
+    with open(picklepath, "rb") as f:
         store = pickle.load(f)
     if store["time"] > datetime.datetime.now() + datetime.timedelta(minutes= 10):
         tidal_session.load_oauth_session(store["type"], store["token"], expiry_time= store["time"])
@@ -28,7 +29,7 @@ else:
 
 if not tidal_session.check_login():
     print("Failed to log in. Please try again later.")
-    os.remove("tidalsession.pickle")
+    os.remove(picklepath)
     exit(1)
 
 store = { 
@@ -36,7 +37,7 @@ store = {
          "token": tidal_session.access_token,
          "time": tidal_session.expiry_time,
          }
-with open("tidalsession.pickle", "wb") as f:
+with open(picklepath, "wb") as f:
     pickle.dump(store, f)
 
 if len(sys.argv) > 1:
