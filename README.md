@@ -1,5 +1,5 @@
 # MusicLinkConverter
----
+
 A program to convert between Tidal and Spotify links. Maybe I'll add other platforms, but I don't really have the need for any other platforms for now. 
 
 Pass in as an argument either a Tidal or Spotify link to a song. The converted link will be printed to stdout.
