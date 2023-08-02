@@ -26,7 +26,7 @@ class Session:
         r = requests.get("https://api.spotify.com/v1"+query, params= params, headers= header)
         return json.loads(r.text)
 
-    def search (self, search: str, categories: list[str], limit: int):
+    def search (self, search: str, categories: list[str] = [ "track" ], limit: int = 1):
         """Search Spotify.
         Valid categories are: album, artist, playlist, track, show, episode, audiobook
         Search result categories are returned as properties in the plural form"""
