@@ -46,3 +46,6 @@ if len(sys.argv) > 1:
         print(spotify2tidal.get_url(url, spotify_session, tidal_session))
     elif url.startswith("https://tidal.com/browse/"):
         print(tidal2spotify.get_url(url, spotify_session, tidal_session))
+    elif url.startswith("https://listen.tidal.com"):
+        url = url.replace("https://listen.tidal.com", "https://tidal.com/browse")
+        print(tidal2spotify.get_url(url, spotify_session, tidal_session))
