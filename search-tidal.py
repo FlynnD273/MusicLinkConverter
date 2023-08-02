@@ -4,6 +4,6 @@ import tidalapi
 
 tidal = tidallogin.login()
 
-result = tidal.search(" ".join(sys.argv[1:]), models= [ tidalapi.Track ], limit= 1)["tracks"][0]
+result = tidal.search(sys.argv[1], models= [ tidalapi.Track ], limit= 1)["tracks"][0]
 
 print("https://listen.tidal.com/track/" + str(result.id))

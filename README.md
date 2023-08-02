@@ -11,3 +11,9 @@ To get started, clone this repository by running `git clone https://github.com/F
 You must have python 3 and pip installed. To install all dependencies, run `pip install -r requirements.txt`
 
 Then run `python convert.py <URL GOES HERE>`
+
+
+To search for a single track on Spotify, run `python search-spotify.py <SEARCH TERM HERE>`.
+This will print the URL to the top result.
+
+Similarly, you can run `python search-tidal.py <SEARCH TERM HERE>` to search Tidal.
