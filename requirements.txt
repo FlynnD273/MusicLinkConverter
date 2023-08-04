@@ -1,3 +1,4 @@
 tidalapi
 plyer
 BeautifulSoup4
+Pillow
