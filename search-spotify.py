@@ -17,7 +17,7 @@ desc = track["name"] + " - " + ", ".join([s["name"] for s in track["artists"]])
 trackurl = track["external_urls"]["spotify"]
 
 page = requests.get(trackurl).text
-parsed = bs4.BeautifulSoup(page, features="lxml")
+parsed = bs4.BeautifulSoup(page)
 
 img_element = parsed.find("img", attrs={ "alt":track["name"] })
 if not img_element:

@@ -16,7 +16,7 @@ class Session:
     def __get_access_token__ (self) -> str:
         """Get a temporary Spotify access token. This token lasts for an hour."""
         r = requests.get("https://open.spotify.com/")
-        parsed = BeautifulSoup(r.text, features="lxml")
+        parsed = BeautifulSoup(r.text)
         parsed_json = json.loads(parsed.find(attrs={ "id":"session" }).text)
         return parsed_json["accessToken"]
 

@@ -13,7 +13,8 @@ import tidallogin
 iconpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"{hash(datetime.now())}.png")
 tidal = tidallogin.login()
 
-track = tidal.search(sys.argv[1], models= [ tidalapi.Track ], limit= 1)["tracks"][0]
+search = tidal.search(sys.argv[1], models= [ tidalapi.Track ], limit= 1)["tracks"]
+track = search[0]
 desc = f"{track.full_name} - {', '.join([a.name for a in track.artists])}"
 
 imgurl = track.album.image(320)
