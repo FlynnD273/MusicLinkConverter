@@ -1,5 +1,4 @@
 tidalapi
-plyer
 BeautifulSoup4
 Pillow
 notify-py

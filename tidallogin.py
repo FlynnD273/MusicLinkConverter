@@ -1,4 +1,4 @@
-from plyer import notification
+import sys
 import datetime
 import os
 import tidalapi
@@ -7,7 +7,18 @@ import pickle
 def login () -> tidalapi.Session:
     def login (session: tidalapi.Session) -> None:
         login, future = session.login_oauth()
-        notification.notify("Open the URL to log in", login.verification_uri_complete)
+        url = "https://" + str(login.verification_uri_complete)
+        if sys.platform == "win32":
+            os.startfile(url)
+        elif sys.platform == "darwin":
+            subprocess.Popen(['open', url])
+        else:
+            try:
+                subprocess.Popen(['xdg-open', url])
+            except OSError:
+                print("Could not open browser", file=sys.stderr)
+        print("Please open a browser on: " + url, file=sys.stderr)
+
         future.result()
 
     tidal_session = tidalapi.Session()
