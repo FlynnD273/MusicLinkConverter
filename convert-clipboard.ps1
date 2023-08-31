@@ -1,1 +1,2 @@
-"$(Split-Path -parent $PSCommandPath)/.venv.bin/python" "D:\repos\MusicLinkConverter\convert.py" (Get-Clipboard) | Set-Clipboard
+. .\get-python.ps1
+& $(Get-PythonPath) "D:\repos\MusicLinkConverter\convert.py" $(Get-Clipboard) | Set-Clipboard
