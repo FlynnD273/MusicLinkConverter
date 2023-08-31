@@ -1,4 +1,5 @@
 import sys
+import subprocess
 import datetime
 import os
 import tidalapi
