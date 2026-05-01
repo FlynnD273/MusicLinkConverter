@@ -1,3 +1,5 @@
+# ⚠️ This repository has migrated to [Codeberg](https://codeberg.org/FlynnD273/music-link-converter)
+
 # MusicLinkConverter
 
 A program to convert between Tidal and Spotify links. Maybe I'll add other platforms, but I don't really have the need for any other platforms for now. 
